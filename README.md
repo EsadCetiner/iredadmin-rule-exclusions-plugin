@@ -8,7 +8,7 @@ This plugin contains rule exclusions to fix false positives when using iRedMail'
 - ModSecurity compatable Web Application Firewall
 
 # How to install the plugin
-To install this plugin, create a include for the file ``plugins/iredadmin-rule-exclusions-config.conf`` and ``iredadmin-rule-exclusions-before.conf`` after ``crs-setup.conf`` but before loading any CRS rules.
+To install this plugin, create a include for the file ``plugins/iredadmin-rule-exclusions-config.conf`` and ``plugins/iredadmin-rule-exclusions-before.conf`` after ``crs-setup.conf`` but before loading any CRS rules.
 
 See below for an example on how to install:
 ```
