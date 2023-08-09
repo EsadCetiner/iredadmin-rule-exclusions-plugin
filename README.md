@@ -28,7 +28,7 @@ Then reload your WAF to apply the new changes (Restart for Nginx ModSec users)
 You can also refer to official CRS documentation on how to install a plugin https://coreruleset.org/docs/concepts/plugins/#how-to-install-a-plugin
 
 # Disabling the plugin
-The plugin can be disabled by uncommenting rule 9518000 inside ``plugins/iredadmin-rule-exclusions-config.conf`` or by removing the includes for this plugin.
+The plugin can be disabled by uncommenting rule 9521000 inside ``plugins/iredadmin-rule-exclusions-config.conf`` or by removing the includes for this plugin.
 
 # Reporting false positives
 If you find a false positive that this plugin does not cover then please open a new issue or pull request, if creating an issue then please include the following details:
