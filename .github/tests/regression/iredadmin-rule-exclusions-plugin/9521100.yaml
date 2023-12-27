@@ -1,0 +1,23 @@
+---
+meta:
+  author: "Esad Cetiner"
+  description: "iRedAdmin Rule Exclusions Plugin"
+  enabled: true
+  name: 9521100.yaml
+tests:
+  - test_title: 9521100-1
+    desc: Disable 942450 for iRedAdmin-MYSQL cookie
+    stages:
+      - stage:
+          input:
+            dest_addr: 127.0.0.1
+            headers:
+              Host: localhost
+              User-Agent: iRedAdmin rule exclusions plugin
+              Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
+              cookie: iRedAdmin-MYSQL=0x86DD
+            port: 80
+            method: POST
+            uri: /post
+          output:
+            no_log_contains: id "942450"
