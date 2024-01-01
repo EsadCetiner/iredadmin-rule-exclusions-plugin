@@ -1,0 +1,67 @@
+---
+meta:
+  author: "Esad Cetiner"
+  description: "iRedAdmin Rule Exclusions Plugin"
+  enabled: true
+  name: 9521104.yaml
+tests:
+  - test_title: 9521104-1
+    desc: Disable 932260 for ARGS_NAMES:mailQuota
+    stages:
+      - stage:
+          input:
+            dest_addr: 127.0.0.1
+            headers:
+              Host: localhost
+              User-Agent: iRedAdmin rule exclusions plugin
+              Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
+            port: 80
+            method: POST
+            uri: /iredadmin/profile/user/general/foo@bar.com?mailQuota=500M
+          output:
+            no_log_contains: id "932260"
+  - test_title: 9521104-2
+    desc: Disable 932236 for ARGS_NAMES:mailQuota
+    stages:
+      - stage:
+          input:
+            dest_addr: 127.0.0.1
+            headers:
+              Host: localhost
+              User-Agent: iRedAdmin rule exclusions plugin
+              Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
+            port: 80
+            method: POST
+            uri: /iredadmin/profile/user/general/foo@bar.com?mailQuota=500M
+          output:
+            no_log_contains: id "932236"
+  - test_title: 9521104-3
+    desc: Disable OWASP CRS for ARGS:confirmpw
+    stages:
+      - stage:
+          input:
+            dest_addr: 127.0.0.1
+            headers:
+              Host: localhost
+              User-Agent: iRedAdmin rule exclusions plugin
+              Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
+            port: 80
+            method: POST
+            uri: /iredadmin/profile/user/general/foo@bar.com?confirmpw=<script>
+          output:
+            no_log_contains: id "941110"
+  - test_title: 9521104-4
+    desc: Disable OWASP CRS for ARGS:newpw
+    stages:
+      - stage:
+          input:
+            dest_addr: 127.0.0.1
+            headers:
+              Host: localhost
+              User-Agent: iRedAdmin rule exclusions plugin
+              Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
+            port: 80
+            method: POST
+            uri: /iredadmin/profile/user/general/foo@bar.com?newpw=<script>
+          output:
+            no_log_contains: id "941110"
