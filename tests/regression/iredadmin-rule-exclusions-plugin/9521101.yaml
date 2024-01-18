@@ -6,7 +6,7 @@ meta:
   name: 9521101.yaml
 tests:
   - test_title: 9521101-1
-    desc: Disable 920440 when request uri ends in com
+    desc: Disable 942450 for iRedAdmin-PGSQL cookie
     stages:
       - stage:
           input:
@@ -15,13 +15,14 @@ tests:
               Host: localhost
               User-Agent: iRedAdmin rule exclusions plugin
               Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
+              cookie: iRedAdmin-PGSQL=0x86DD
             port: 80
             method: POST
-            uri: /iredadmin/foo.com
+            uri: /post
           output:
-            no_log_contains: id "920440"
+            no_log_contains: id "942450"
   - test_title: 9521101-2
-    desc: Disable 920440 when request uri ends in inc
+    desc: Disable 932236 for iRedAdmin-PGSQL cookie
     stages:
       - stage:
           input:
@@ -30,8 +31,9 @@ tests:
               Host: localhost
               User-Agent: iRedAdmin rule exclusions plugin
               Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
+              cookie: iRedAdmin-PGSQL=ls
             port: 80
             method: POST
-            uri: /iredadmin/foo.inc
+            uri: /post
           output:
-            no_log_contains: id "920440"
+            no_log_contains: id "932236"

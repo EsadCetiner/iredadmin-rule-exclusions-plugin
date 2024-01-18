@@ -3,10 +3,10 @@ meta:
   author: "Esad Cetiner"
   description: "iRedAdmin Rule Exclusions Plugin"
   enabled: true
-  name: 9521100.yaml
+  name: 9521111.yaml
 tests:
-  - test_title: 9521100-1
-    desc: Disable 942450 for iRedAdmin-MYSQL cookie
+  - test_title: 9521111-1
+    desc: Disable 942450 for CSRF Token
     stages:
       - stage:
           input:
@@ -15,14 +15,13 @@ tests:
               Host: localhost
               User-Agent: iRedAdmin rule exclusions plugin
               Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
-              cookie: iRedAdmin-MYSQL=0x86DD
             port: 80
             method: POST
-            uri: /post
+            uri: /iredadmin/?csrf_token=0x0800
           output:
             no_log_contains: id "942450"
-  - test_title: 9521100-2
-    desc: Disable 932236 for iRedAdmin-MYSQL cookie
+  - test_title: 9521111-2
+    desc: Disable 932236 for CSRF Token
     stages:
       - stage:
           input:
@@ -31,9 +30,8 @@ tests:
               Host: localhost
               User-Agent: iRedAdmin rule exclusions plugin
               Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
-              cookie: iRedAdmin-MYSQL=ls
             port: 80
             method: POST
-            uri: /post
+            uri: /iredadmin/?csrf_token=ls
           output:
             no_log_contains: id "932236"

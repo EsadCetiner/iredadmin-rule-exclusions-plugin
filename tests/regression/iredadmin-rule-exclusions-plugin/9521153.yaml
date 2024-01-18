@@ -3,9 +3,9 @@ meta:
   author: "Esad Cetiner"
   description: "iRedAdmin Rule Exclusions Plugin"
   enabled: true
-  name: 9521106.yaml
+  name: 9521153.yaml
 tests:
-  - test_title: 9521106-1
+  - test_title: 9521153-1
     desc: Disable OWASP CRS for ARGS:confirmpw
     stages:
       - stage:
@@ -20,7 +20,7 @@ tests:
             uri: /iredadmin/profile/user/password/foo@bar.com?confirmpw=<script>
           output:
             no_log_contains: id "941110"
-  - test_title: 9521106-2
+  - test_title: 9521153-2
     desc: Disable OWASP CRS for ARGS:newpw
     stages:
       - stage:
@@ -35,7 +35,7 @@ tests:
             uri: /iredadmin/profile/user/password/foo@bar.com?newpw=<script>
           output:
             no_log_contains: id "941110"
-  - test_title: 9521106-3
+  - test_title: 9521153-3
     desc: Disable OWASP CRS for ARGS:confirmpw
     stages:
       - stage:
@@ -50,7 +50,7 @@ tests:
             uri: /iredadmin/profile/admin/password/foo@bar.com?confirmpw=<script>
           output:
             no_log_contains: id "941110"
-  - test_title: 9521106-4
+  - test_title: 9521153-4
     desc: Disable OWASP CRS for ARGS:newpw
     stages:
       - stage:
