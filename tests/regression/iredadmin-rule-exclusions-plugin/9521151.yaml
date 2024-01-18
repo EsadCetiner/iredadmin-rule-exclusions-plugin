@@ -65,3 +65,33 @@ tests:
             uri: /iredadmin/profile/user/general/foo@bar.com?newpw=<script>
           output:
             no_log_contains: id "941110"
+  - test_title: 9521151-5
+    desc: Disable 921180 for ARGS_NAMES:telephoneNumber
+    stages:
+      - stage:
+          input:
+            dest_addr: 127.0.0.1
+            headers:
+              Host: localhost
+              User-Agent: iRedAdmin rule exclusions plugin
+              Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
+            port: 80
+            method: POST
+            uri: /iredadmin/profile/user/general/foo@bar.com?telephoneNumber=0123&telephoneNumber=4567
+          output:
+            no_log_contains: id "921180"
+  - test_title: 9521151-6
+    desc: Disable 921180 for ARGS_NAMES:title
+    stages:
+      - stage:
+          input:
+            dest_addr: 127.0.0.1
+            headers:
+              Host: localhost
+              User-Agent: iRedAdmin rule exclusions plugin
+              Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
+            port: 80
+            method: POST
+            uri: /iredadmin/profile/user/general/foo@bar.com?title=0123&title=4567
+          output:
+            no_log_contains: id "921180"
