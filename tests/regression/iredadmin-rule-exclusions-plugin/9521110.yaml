@@ -3,10 +3,10 @@ meta:
   author: "Esad Cetiner"
   description: "iRedAdmin Rule Exclusions Plugin"
   enabled: true
-  name: 9521100.yaml
+  name: 9521110.yaml
 tests:
-  - test_title: 9521100-1
-    desc: Disable 942450 for iRedAdmin-MYSQL cookie
+  - test_title: 9521110-1
+    desc: Disable 920440 when request uri ends in com
     stages:
       - stage:
           input:
@@ -15,14 +15,13 @@ tests:
               Host: localhost
               User-Agent: iRedAdmin rule exclusions plugin
               Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
-              cookie: iRedAdmin-MYSQL=0x86DD
             port: 80
             method: POST
-            uri: /post
+            uri: /iredadmin/foo.com
           output:
-            no_log_contains: id "942450"
-  - test_title: 9521100-2
-    desc: Disable 932236 for iRedAdmin-MYSQL cookie
+            no_log_contains: id "920440"
+  - test_title: 9521110-2
+    desc: Disable 920440 when request uri ends in inc
     stages:
       - stage:
           input:
@@ -31,9 +30,8 @@ tests:
               Host: localhost
               User-Agent: iRedAdmin rule exclusions plugin
               Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
-              cookie: iRedAdmin-MYSQL=ls
             port: 80
             method: POST
-            uri: /post
+            uri: /iredadmin/foo.inc
           output:
-            no_log_contains: id "932236"
+            no_log_contains: id "920440"
