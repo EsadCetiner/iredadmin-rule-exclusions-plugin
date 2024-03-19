@@ -6,7 +6,7 @@ meta:
   name: 9521151.yaml
 tests:
   - test_title: 9521151-1
-    desc: Disable 932260 for ARGS_NAMES:mailQuota
+    desc: Making changes to a iRedMail user/admin (Excluding password changes)
     stages:
       - stage:
           input:
@@ -15,69 +15,25 @@ tests:
               Host: localhost
               User-Agent: iRedAdmin rule exclusions plugin
               Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
+              Content-Type: application/x-www-form-urlencoded
             port: 80
             method: POST
-            uri: /iredadmin/profile/user/general/foo@bar.com?mailQuota=500M
+            uri: /iredadmin/profile/user/general/test@example.com
+            data: |
+              csrf_token=random
+              accountStatus=on
+              mailQuota=1024
+              cn=test
+              first_name=test
+              last_name=test
+              preferredLanguage=en_US
+              timezone=America%2FDenver
+              employeeNumber=123
+              title=test
+              title=test
+              mobile=564
+              telephoneNumber=54325
+              telephoneNumber=563 
           output:
             no_log_contains: |
-              id "932260"|id "932236"
-  - test_title: 9521151-2
-    desc: Disable OWASP CRS for ARGS:confirmpw
-    stages:
-      - stage:
-          input:
-            dest_addr: 127.0.0.1
-            headers:
-              Host: localhost
-              User-Agent: iRedAdmin rule exclusions plugin
-              Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
-            port: 80
-            method: POST
-            uri: /iredadmin/profile/user/general/foo@bar.com?confirmpw=<script>
-          output:
-            no_log_contains: id "941110"
-  - test_title: 9521151-3
-    desc: Disable OWASP CRS for ARGS:newpw
-    stages:
-      - stage:
-          input:
-            dest_addr: 127.0.0.1
-            headers:
-              Host: localhost
-              User-Agent: iRedAdmin rule exclusions plugin
-              Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
-            port: 80
-            method: POST
-            uri: /iredadmin/profile/user/general/foo@bar.com?newpw=<script>
-          output:
-            no_log_contains: id "941110"
-  - test_title: 9521151-4
-    desc: Disable 921180 for ARGS_NAMES:telephoneNumber
-    stages:
-      - stage:
-          input:
-            dest_addr: 127.0.0.1
-            headers:
-              Host: localhost
-              User-Agent: iRedAdmin rule exclusions plugin
-              Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
-            port: 80
-            method: POST
-            uri: /iredadmin/profile/user/general/foo@bar.com?telephoneNumber=0123&telephoneNumber=4567
-          output:
-            no_log_contains: id "921180"
-  - test_title: 9521151-5
-    desc: Disable 921180 for ARGS_NAMES:title
-    stages:
-      - stage:
-          input:
-            dest_addr: 127.0.0.1
-            headers:
-              Host: localhost
-              User-Agent: iRedAdmin rule exclusions plugin
-              Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
-            port: 80
-            method: POST
-            uri: /iredadmin/profile/user/general/foo@bar.com?title=0123&title=4567
-          output:
-            no_log_contains: id "921180"
+              id "921180"|id "932260"|id "932236"| id "941110"
