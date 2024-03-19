@@ -15,8 +15,11 @@ tests:
               Host: localhost
               User-Agent: iRedAdmin rule exclusions plugin
               Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
+              Content-Type: application/x-www-form-urlencoded
             port: 80
             method: POST
-            uri: /iredadmin/login?password=<script>
+            uri: /iredadmin/login
+            data: |
+              username=postmaster%40example.com&password=%3Cscript%3E&form_login=Login&lang=en_US
           output:
             no_log_contains: id "941110"

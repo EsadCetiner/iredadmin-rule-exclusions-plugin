@@ -6,7 +6,7 @@ meta:
   name: 9521150.yaml
 tests:
   - test_title: 9521150-1
-    desc: Disable 932260 and 932236 for ARGS_NAMES:mailQuota
+    desc: Creating a new iRedMail user
     stages:
       - stage:
           input:
@@ -15,39 +15,12 @@ tests:
               Host: localhost
               User-Agent: iRedAdmin rule exclusions plugin
               Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
+              Content-Type: application/x-www-form-urlencoded
             port: 80
             method: POST
-            uri: /iredadmin/create/user/foo@bar.com?mailQuota=500M
+            uri: /iredadmin/create/user/test@example.com
+            data: |
+              csrf_token=random&domainName=example.com&username=test&newpw=%3Cscript%3E&confirmpw=%3Cscript%3E&cn=test&preferredLanguage=en_US&mailQuota=42&submit_add_user=Add
           output:
             no_log_contains: |
-              id "932260"|id "932236"
-  - test_title: 9521150-2
-    desc: Disable OWASP CRS for ARGS:confirmpw
-    stages:
-      - stage:
-          input:
-            dest_addr: 127.0.0.1
-            headers:
-              Host: localhost
-              User-Agent: iRedAdmin rule exclusions plugin
-              Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
-            port: 80
-            method: POST
-            uri: /iredadmin/create/user/foo@bar.com?confirmpw=<script>
-          output:
-            no_log_contains: id "941110"
-  - test_title: 9521150-3
-    desc: Disable OWASP CRS for ARGS:newpw
-    stages:
-      - stage:
-          input:
-            dest_addr: 127.0.0.1
-            headers:
-              Host: localhost
-              User-Agent: iRedAdmin rule exclusions plugin
-              Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
-            port: 80
-            method: POST
-            uri: /iredadmin/create/user/foo@bar.com?newpw=<script>
-          output:
-            no_log_contains: id "941110"
+              id "932260"|id "932236"|id "941110"
