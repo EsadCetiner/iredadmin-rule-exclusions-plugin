@@ -20,9 +20,6 @@ tests:
             method: POST
             uri: /iredadmin/login
             data: |
-              username=postmaster%40example.com
-              password=%3Cscript%3E
-              form_login=Login
-              lang=en_US
+              username=postmaster%40example.com&password=%3Cscript%3E&form_login=Login&lang=en_US
           output:
             no_log_contains: id "941110"

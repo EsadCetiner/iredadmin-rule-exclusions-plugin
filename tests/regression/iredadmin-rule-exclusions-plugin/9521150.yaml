@@ -20,15 +20,7 @@ tests:
             method: POST
             uri: /iredadmin/create/user/test@example.com
             data: |
-              csrf_token=random
-              domainName=example.com
-              username=test
-              newpw=%3Cscript%3E
-              confirmpw=%3Cscript%3E
-              cn=test
-              preferredLanguage=en_US
-              mailQuota=42
-              submit_add_user=Add
+              csrf_token=random&domainName=example.com&username=test&newpw=%3Cscript%3E&confirmpw=%3Cscript%3E&cn=test&preferredLanguage=en_US&mailQuota=42&submit_add_user=Add
           output:
             no_log_contains: |
               id "932260"|id "932236"|id "941110"
