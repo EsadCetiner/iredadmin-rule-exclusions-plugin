@@ -21,5 +21,6 @@ tests:
             uri: /iredadmin/login
             data: |
               username=postmaster%40example.com&password=%3Cscript%3E&form_login=Login&lang=en_US
+            version: HTTP/1.1
           output:
             no_log_contains: id "941110"

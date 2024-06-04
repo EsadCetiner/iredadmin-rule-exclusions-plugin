@@ -21,5 +21,6 @@ tests:
             uri: /iredadmin/create/admin
             data: |
               csrf_token=random&mail=test%40example.com&newpw=%3Cscript%3E&confirmpw=%3Cscript%3E&cn=test&preferredLanguage=en_US
+            version: HTTP/1.1
           output:
             no_log_contains: id "941110"
