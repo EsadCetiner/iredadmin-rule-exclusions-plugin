@@ -39,3 +39,71 @@ tests:
             version: HTTP/1.1
           output:
             no_log_contains: id "932236"
+  - test_title: 9521100-3
+    desc: Disable 942450 for iRedAdmin-PGSQL cookie
+    stages:
+      - stage:
+          input:
+            dest_addr: 127.0.0.1
+            headers:
+              Host: localhost
+              User-Agent: iRedAdmin rule exclusions plugin
+              Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
+              cookie: iRedAdmin-PGSQL=0x86dd
+            port: 80
+            method: POST
+            uri: /post
+            version: HTTP/1.1
+          output:
+            no_log_contains: id "942450"
+  - test_title: 9521100-4
+    desc: Disable 932236 for iRedAdmin-PGSQL cookie
+    stages:
+      - stage:
+          input:
+            dest_addr: 127.0.0.1
+            headers:
+              Host: localhost
+              User-Agent: iRedAdmin rule exclusions plugin
+              Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
+              cookie: iRedAdmin-PGSQL=ls
+            port: 80
+            method: POST
+            uri: /post
+            version: HTTP/1.1
+          output:
+            no_log_contains: id "932236"
+  - test_title: 9521100-5
+    desc: Disable 942450 for iRedAdmin-LDAP cookie
+    stages:
+      - stage:
+          input:
+            dest_addr: 127.0.0.1
+            headers:
+              Host: localhost
+              User-Agent: iRedAdmin rule exclusions plugin
+              Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
+              cookie: iRedAdmin-LDAP=0x86dd
+            port: 80
+            method: POST
+            uri: /post
+            version: HTTP/1.1
+          output:
+            no_log_contains: id "942450"
+  - test_title: 9521100-6
+    desc: Disable 932236 for iRedAdmin-LDAP cookie
+    stages:
+      - stage:
+          input:
+            dest_addr: 127.0.0.1
+            headers:
+              Host: localhost
+              User-Agent: iRedAdmin rule exclusions plugin
+              Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
+              cookie: iRedAdmin-LDAP=ls
+            port: 80
+            method: POST
+            uri: /post
+            version: HTTP/1.1
+          output:
+            no_log_contains: id "932236"
