@@ -19,7 +19,7 @@ tests:
             port: 80
             method: POST
             uri: /iredadmin/login
-            data: |
+            data: |-
               username=postmaster%40example.com&password=%3Cscript%3E&form_login=Login&lang=en_US
             version: HTTP/1.1
           output:

@@ -19,7 +19,7 @@ tests:
             port: 80
             method: POST
             uri: /iredadmin/profile/user/general/test@example.com
-            data: |
+            data: |-
               csrf_token=random&accountStatus=on&mailQuota=1024&cn=test&first_name=test&last_name=test&preferredLanguage=en_US&timezone=America%2FDenver&employeeNumber=123&title=test&title=test&mobile=564&telephoneNumber=54325&telephoneNumber=563
             version: HTTP/1.1
           output:
