@@ -19,7 +19,7 @@ tests:
             port: 80
             method: POST
             uri: /iredadmin/profile/user/password/test@example.com
-            data: |
+            data: |-
               csrf_token=random&newpw=%3Cscript%3E&confirmpw=%3Cscript%3E
             version: HTTP/1.1
           output:
