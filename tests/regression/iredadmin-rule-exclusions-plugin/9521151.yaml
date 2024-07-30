@@ -23,5 +23,5 @@ tests:
               csrf_token=random&accountStatus=on&mailQuota=1024&cn=test&first_name=test&last_name=test&preferredLanguage=en_US&timezone=America%2FDenver&employeeNumber=123&title=test&title=test&mobile=564&telephoneNumber=54325&telephoneNumber=563
             version: HTTP/1.1
           output:
-            no_log_contains: |
+            no_log_contains: |-
               id "921180"|id "932260"|id "932236"|id "941110"
