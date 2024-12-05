@@ -32,7 +32,7 @@ tests:
               Host: localhost
               User-Agent: iRedAdmin rule exclusions plugin
               Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
-              cookie: iRedAdmin-MYSQL=lsrandom
+              cookie: iRedAdmin-MYSQL=df1234567890abcdef
             port: 80
             method: POST
             uri: /post
@@ -66,7 +66,7 @@ tests:
               Host: localhost
               User-Agent: iRedAdmin rule exclusions plugin
               Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
-              cookie: iRedAdmin-PGSQL=lsrandom
+              cookie: iRedAdmin-PGSQL=df1234567890abcdef
             port: 80
             method: POST
             uri: /post
@@ -100,7 +100,7 @@ tests:
               Host: localhost
               User-Agent: iRedAdmin rule exclusions plugin
               Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
-              cookie: iRedAdmin-LDAP=lsrandom
+              cookie: iRedAdmin-LDAP=df1234567890abcdef
             port: 80
             method: POST
             uri: /post
