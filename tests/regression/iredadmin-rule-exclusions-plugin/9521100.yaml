@@ -15,7 +15,7 @@ tests:
               Host: localhost
               User-Agent: iRedAdmin rule exclusions plugin
               Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
-              cookie: iRedAdmin-MYSQL=0x86dd
+              cookie: iRedAdmin-MYSQL=0x86ddrandom
             port: 80
             method: POST
             uri: /post
@@ -32,7 +32,7 @@ tests:
               Host: localhost
               User-Agent: iRedAdmin rule exclusions plugin
               Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
-              cookie: iRedAdmin-MYSQL=ls
+              cookie: iRedAdmin-MYSQL=lsrandom
             port: 80
             method: POST
             uri: /post
@@ -49,7 +49,7 @@ tests:
               Host: localhost
               User-Agent: iRedAdmin rule exclusions plugin
               Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
-              cookie: iRedAdmin-PGSQL=0x86dd
+              cookie: iRedAdmin-PGSQL=0x86ddrandom
             port: 80
             method: POST
             uri: /post
@@ -66,7 +66,7 @@ tests:
               Host: localhost
               User-Agent: iRedAdmin rule exclusions plugin
               Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
-              cookie: iRedAdmin-PGSQL=ls
+              cookie: iRedAdmin-PGSQL=lsrandom
             port: 80
             method: POST
             uri: /post
@@ -83,7 +83,7 @@ tests:
               Host: localhost
               User-Agent: iRedAdmin rule exclusions plugin
               Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
-              cookie: iRedAdmin-LDAP=0x86dd
+              cookie: iRedAdmin-LDAP=0x86ddrandom
             port: 80
             method: POST
             uri: /post
@@ -100,7 +100,7 @@ tests:
               Host: localhost
               User-Agent: iRedAdmin rule exclusions plugin
               Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
-              cookie: iRedAdmin-LDAP=ls
+              cookie: iRedAdmin-LDAP=lsrandom
             port: 80
             method: POST
             uri: /post
