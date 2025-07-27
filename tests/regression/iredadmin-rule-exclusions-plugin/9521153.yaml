@@ -5,22 +5,22 @@ meta:
   enabled: true
   name: 9521153.yaml
 tests:
-  - test_title: 9521153-1
+  - test_id: 1
     desc: Changing the password of an iRedMail user
     stages:
-      - stage:
-          input:
-            dest_addr: 127.0.0.1
-            headers:
-              Host: localhost
-              User-Agent: iRedAdmin rule exclusions plugin
-              Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
-              Content-Type: application/x-www-form-urlencoded
-            port: 80
-            method: POST
-            uri: /iredadmin/profile/user/password/test@example.com
-            data: |-
-              csrf_token=random&newpw=%3Cscript%3E&confirmpw=%3Cscript%3E
-            version: HTTP/1.1
-          output:
-            no_log_contains: id "941110"
+      - input:
+          dest_addr: 127.0.0.1
+          headers:
+            Host: localhost
+            User-Agent: iRedAdmin rule exclusions plugin
+            Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
+            Content-Type: application/x-www-form-urlencoded
+          port: 80
+          method: POST
+          uri: /iredadmin/profile/user/password/test@example.com
+          data: |-
+            csrf_token=random&newpw=%3Cscript%3E&confirmpw=%3Cscript%3E
+          version: HTTP/1.1
+        output:
+          log:
+            no_expect_ids: [941110]
