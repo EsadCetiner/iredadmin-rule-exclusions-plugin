@@ -3,7 +3,7 @@ meta:
   author: "Esad Cetiner"
   description: "iRedAdmin Rule Exclusions Plugin"
   enabled: true
-  name: 9521150.yaml
+  rule_id: 9521150
 tests:
   - test_id: 1
     desc: Creating a new iRedMail user
@@ -23,4 +23,7 @@ tests:
           version: HTTP/1.1
         output:
           log:
-            no_expect_ids: [932260, 932236, 941110]
+            no_expect_ids:
+              - 932260
+              - 932236
+              - 941110

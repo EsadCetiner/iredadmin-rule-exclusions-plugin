@@ -3,7 +3,7 @@ meta:
   author: "Esad Cetiner"
   description: "iRedAdmin Rule Exclusions Plugin"
   enabled: true
-  name: 9521152.yaml
+  rule_id: 9521152
 tests:
   - test_id: 1
     desc: Creating a new iRedMail administrator
