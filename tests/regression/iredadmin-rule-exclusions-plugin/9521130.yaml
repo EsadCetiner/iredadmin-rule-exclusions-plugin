@@ -2,7 +2,7 @@
 meta:
   author: "Esad Cetiner"
   description: "iRedAdmin Rule Exclusions Plugin"
-  rule_id: 9521130
+rule_id: 9521130
 tests:
   - test_id: 1
     desc: Disable OWASP CRS for ARGS:password

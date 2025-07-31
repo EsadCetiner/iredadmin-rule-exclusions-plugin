@@ -2,7 +2,7 @@
 meta:
   author: "Esad Cetiner"
   description: "iRedAdmin Rule Exclusions Plugin"
-  rule_id: 9521111
+rule_id: 9521111
 tests:
   - test_id: 1
     desc: Disable 942450 for CSRF Token

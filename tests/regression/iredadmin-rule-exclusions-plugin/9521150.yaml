@@ -2,7 +2,7 @@
 meta:
   author: "Esad Cetiner"
   description: "iRedAdmin Rule Exclusions Plugin"
-  rule_id: 9521150
+rule_id: 9521150
 tests:
   - test_id: 1
     desc: Creating a new iRedMail user

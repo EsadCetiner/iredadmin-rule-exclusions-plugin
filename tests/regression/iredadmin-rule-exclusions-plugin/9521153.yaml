@@ -2,7 +2,7 @@
 meta:
   author: "Esad Cetiner"
   description: "iRedAdmin Rule Exclusions Plugin"
-  rule_id: 9521153
+rule_id: 9521153
 tests:
   - test_id: 1
     desc: Changing the password of an iRedMail user

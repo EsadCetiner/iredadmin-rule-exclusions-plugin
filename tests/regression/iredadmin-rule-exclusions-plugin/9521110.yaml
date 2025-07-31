@@ -2,7 +2,7 @@
 meta:
   author: "Esad Cetiner"
   description: "iRedAdmin Rule Exclusions Plugin"
-  rule_id: 9521110
+rule_id: 9521110
 tests:
   - test_id: 1
     desc: Disable 920440 when request uri ends in com
