@@ -2,44 +2,43 @@
 meta:
   author: "Esad Cetiner"
   description: "iRedAdmin Rule Exclusions Plugin"
-  enabled: true
-  name: 9521111.yaml
+rule_id: 9521111
 tests:
-  - test_title: 9521111-1
+  - test_id: 1
     desc: Disable 942450 for CSRF Token
     stages:
-      - stage:
-          input:
-            dest_addr: 127.0.0.1
-            headers:
-              Host: localhost
-              User-Agent: iRedAdmin rule exclusions plugin
-              Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
-              Content-Type: application/x-www-form-urlencoded
-            port: 80
-            method: POST
-            uri: /iredadmin/
-            data: |-
-              csrf_token=0x0800random
-            version: HTTP/1.1
-          output:
-            no_log_contains: id "942450"
-  - test_title: 9521111-2
+      - input:
+          dest_addr: 127.0.0.1
+          headers:
+            Host: localhost
+            User-Agent: iRedAdmin rule exclusions plugin
+            Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
+            Content-Type: application/x-www-form-urlencoded
+          port: 80
+          method: POST
+          uri: /iredadmin/
+          data: |-
+            csrf_token=0x0800random
+          version: HTTP/1.1
+        output:
+          log:
+            no_expect_ids: [942450]
+  - test_id: 2
     desc: Disable 932236 for CSRF Token
     stages:
-      - stage:
-          input:
-            dest_addr: 127.0.0.1
-            headers:
-              Host: localhost
-              User-Agent: iRedAdmin rule exclusions plugin
-              Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
-              Content-Type: application/x-www-form-urlencoded
-            port: 80
-            method: POST
-            uri: /iredadmin/
-            data: |-
-              csrf_token=lsrandom
-            version: HTTP/1.1
-          output:
-            no_log_contains: id "932236"
+      - input:
+          dest_addr: 127.0.0.1
+          headers:
+            Host: localhost
+            User-Agent: iRedAdmin rule exclusions plugin
+            Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
+            Content-Type: application/x-www-form-urlencoded
+          port: 80
+          method: POST
+          uri: /iredadmin/
+          data: |-
+            csrf_token=lsrandom
+          version: HTTP/1.1
+        output:
+          log:
+            no_expect_ids: [932236]

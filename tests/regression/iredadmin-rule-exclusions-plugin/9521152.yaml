@@ -2,25 +2,24 @@
 meta:
   author: "Esad Cetiner"
   description: "iRedAdmin Rule Exclusions Plugin"
-  enabled: true
-  name: 9521152.yaml
+rule_id: 9521152
 tests:
-  - test_title: 9521152-1
+  - test_id: 1
     desc: Creating a new iRedMail administrator
     stages:
-      - stage:
-          input:
-            dest_addr: 127.0.0.1
-            headers:
-              Host: localhost
-              User-Agent: iRedAdmin rule exclusions plugin
-              Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
-              Content-Type: application/x-www-form-urlencoded
-            port: 80
-            method: POST
-            uri: /iredadmin/create/admin
-            data: |-
-              csrf_token=random&mail=test%40example.com&newpw=%3Cscript%3E&confirmpw=%3Cscript%3E&cn=test&preferredLanguage=en_US
-            version: HTTP/1.1
-          output:
-            no_log_contains: id "941110"
+      - input:
+          dest_addr: 127.0.0.1
+          headers:
+            Host: localhost
+            User-Agent: iRedAdmin rule exclusions plugin
+            Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
+            Content-Type: application/x-www-form-urlencoded
+          port: 80
+          method: POST
+          uri: /iredadmin/create/admin
+          data: |-
+            csrf_token=random&mail=test%40example.com&newpw=%3Cscript%3E&confirmpw=%3Cscript%3E&cn=test&preferredLanguage=en_US
+          version: HTTP/1.1
+        output:
+          log:
+            no_expect_ids: [941110]
