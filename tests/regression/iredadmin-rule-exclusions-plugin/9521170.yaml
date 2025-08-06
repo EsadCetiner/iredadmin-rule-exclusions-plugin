@@ -5,8 +5,7 @@ meta:
 rule_id: 9521170
 tests:
   - test_id: 1
-    desc: |
-      Updating domain whitelist in greylisting system configuration.
+    desc: Updating domain whitelist in greylisting system configuration.
     stages:
       - input:
           dest_addr: 127.0.0.1
@@ -23,5 +22,4 @@ tests:
           version: HTTP/1.1
         output:
           log:
-            no_expect_ids:
-              - 932370
+            no_expect_ids: [932370]
