@@ -3,7 +3,8 @@
 # iRedAdmin-rule-exclusions-plugin
 This plugin contains rule exclusions to fix false positives when using iRedMail's iRedAdmin with the OWASP Core Rule Set.
 
-**Disclaimer:** The Pro version of iRedAdmin is not supported but Pull Requests/Issues are welcomed for iRedAdmin Pro users.
+> [!NOTE]
+> This plugin hasn't been tested against iRedAdmin Pro/Enterprise I don't have access to a paid licence to test these editions. Any issues/PRs are welcome for paid editions, but don't expect this plugin to work flawlessly. iRedAdmin OSE should work without issue.
 
 ## Requirements
 - CRS Version 4.0 or newer
