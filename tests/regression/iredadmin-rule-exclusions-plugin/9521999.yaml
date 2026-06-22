@@ -1,11 +1,11 @@
 ---
 meta:
   author: "Esad Cetiner"
-  description: "iRedAdmin Rule Exclusions Plugin"
-rule_id: 9521111
+  description: "iRedAdmin Rule Exclusions Plugin: Test for CRS false positives that no longer exist"
+rule_id: 9521999
 tests:
   - test_id: 1
-    desc: Disable 942450 for CSRF Token
+    desc: substring false positive with `df` in session cookies
     stages:
       - input:
           dest_addr: 127.0.0.1
@@ -13,18 +13,16 @@ tests:
             Host: localhost
             User-Agent: iRedAdmin rule exclusions plugin
             Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
-            Content-Type: application/x-www-form-urlencoded
+            cookie: iRedAdmin-MYSQL=df1234567890abcdef; iRedAdmin-PGSQL=df1234567890abcdef; iRedAdmin-LDAP=df1234567890abcdef
           port: 80
           method: POST
-          uri: /iredadmin/
-          data: |-
-            csrf_token=0x0800random
+          uri: /post
           version: HTTP/1.1
         output:
           log:
-            no_expect_ids: [942450]
+            no_match_regex: \[id "\d+"\]
   - test_id: 2
-    desc: Disable 932236 for CSRF Token
+    desc: Substring false positives with `ls` in CSRF tokens
     stages:
       - input:
           dest_addr: 127.0.0.1
@@ -41,4 +39,4 @@ tests:
           version: HTTP/1.1
         output:
           log:
-            no_expect_ids: [932236]
+            no_match_regex: \[id "\d+"\]
