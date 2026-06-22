@@ -20,7 +20,7 @@ For full and up to date instructions on how to conditionally enable/disable this
 
 ### Configuration
 
-By default, iRedAdmin's base URL is set to `/iredadmin/` which is also the default base URL supported by this plugin. If you've changed iRedAdmin's base URL, then this plugin can be configured to use a different base url such as `/admin/` by editing rule `9519001` in `iredadmin-rule-exclusions-config.conf`.
+By default, iRedAdmin's base URL is set to `/iredadmin/` which is also the default base URL supported by this plugin. If you've changed iRedAdmin's base URL, then this plugin can be configured to use a different base url such as `/admin/` or a random string to obfuscate iRedAdmin's location by editing rule `9519001` in `iredadmin-rule-exclusions-config.conf`.
 
 > [!WARNING]
 > It's not recommended to set the base url to `/`, which means the plugin will run on all URL paths. Most iRedMail installations will include other web applications such as RoundCube or SOGo hosted under the same domain name, in such cases if a bypass is found in this plugin, then other web apps unrelated to iRedAdmin will be impacted.
