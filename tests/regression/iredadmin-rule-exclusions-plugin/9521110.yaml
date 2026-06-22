@@ -5,7 +5,7 @@ meta:
 rule_id: 9521110
 tests:
   - test_id: 1
-    desc: Disable 920440 when request uri ends in com
+    desc: URL ending in .com for domain names
     stages:
       - input:
           dest_addr: 127.0.0.1
@@ -21,7 +21,7 @@ tests:
           log:
             no_expect_ids: [920440]
   - test_id: 2
-    desc: Disable 920440 when request uri ends in inc
+    desc: URL ending in .inc for domain names
     stages:
       - input:
           dest_addr: 127.0.0.1
