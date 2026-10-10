@@ -1,0 +1,51 @@
+# OWASP CRS Plugin Descriptor
+# https://github.com/coreruleset/plugin-registry
+
+schema_version: 1
+
+plugin:
+  name: "iredadmin-rule-exclusions-plugin"
+  description: "CRS rule exclusions to fix false positives when using iRedAdmin"
+  long_description: |
+    Provides targeted rule exclusions to eliminate false positives when
+    running OWASP CRS in front of iRedMail's iRedAdmin web-based admin
+    panel. Covers login, user/administrator creation and management,
+    password changes, domain disclaimers, and greylist administration.
+    The plugin only activates on the configured iRedAdmin base URL
+    (default `/iredadmin/`) and can be disabled entirely.
+  type: "3rd-party"
+  category: "rule-exclusion"
+  status: "tested"
+  license: "GPL-2.0"
+  authors:
+    - name: "Esad Cetiner"
+      url: "https://github.com/EsadCetiner"
+  repository: "https://github.com/EsadCetiner/iredadmin-rule-exclusions-plugin"
+  keywords:
+    - "iredmail"
+    - "iredadmin"
+    - "rule-exclusion"
+    - "false-positive"
+
+rule_id_range:
+  start: 9521000
+  end: 9521999
+
+compatibility:
+  crs_version: ">=4.0.0"
+
+configuration:
+  file: "plugins/iredadmin-rule-exclusions-config.conf"
+  variables:
+    - name: "tx.iredadmin-rule-exclusions-plugin"
+      type: "boolean"
+      default: 1
+      description: "Enable or disable the iRedAdmin rule exclusions plugin (0 to disable)"
+    - name: "tx.iredadmin-rule-exclusions-base-url"
+      type: "string"
+      default: "/iredadmin/"
+      example: "/admin/"
+      description: >-
+        Base URL path where iRedAdmin is served. Must end with a trailing
+        slash; the plugin only applies its exclusions to requests under
+        this path.
